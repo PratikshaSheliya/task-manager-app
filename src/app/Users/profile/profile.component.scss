@@ -1,0 +1,168 @@
+.sidebar {
+  background-color: white;
+  height: 44.8rem;
+}
+.main {
+  background-color: #e1fcfc;
+  border-radius: 10px;
+}
+.navbar {
+  background-color: white;
+}
+img {
+  width: 61px;
+  border-radius: 50%;
+}
+.navname {
+  padding-left: 12px;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: revert;
+}
+.btnlogout {
+  background-color: #107c7c;
+  color: white;
+  height: 40px;
+}
+.task-a {
+  font-size: 18px;
+  text-decoration: none;
+  padding-left: 5px;
+  //   color: #107c7c;
+  color: gray;
+}
+.fa-tasks {
+  font-size: 17px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-users {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-edit {
+  font-size: 20px;
+  color: gray;
+}
+.fa-user-circle-o {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-user {
+  font-size: 18px;
+  color: gray;
+  cursor: pointer;
+}
+.fa-lock{
+  font-size: 18px;
+  color: gray;
+  cursor: pointer;
+}
+hr {
+  color: gray;
+  margin-left: 12px;
+  width: 62.4rem;
+}
+.maintable {
+  background-color: white;
+  margin-top: 3rem;
+  border-radius: 10px;
+  width: 64rem;
+  margin-left: 4rem;
+  border: 1px solid #a2dada;
+  height: 33rem;
+}
+.account {
+  font-size: 27px;
+  padding-left: 21px;
+  padding-top: 18px;
+  font-weight: 500;
+}
+.vl {
+  border-left: 2px solid gray;
+  height: 449px;
+  margin-top: -16px;
+}
+.spanside {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(77, 75, 75);
+}
+.sidediv {
+  padding-left: 56px;
+  padding-bottom: 28px;
+  cursor: pointer;
+}
+.fas {
+  font-size: 18px;
+  color: gray;
+  cursor: pointer;
+}
+.profileImag{
+  width: 8rem;
+  margin-top: 9px;
+}
+.hori-hr{
+  margin-left: -5.4rem;
+  width: 47.5rem;
+}
+.profilename{
+  padding-top: 34px;
+  padding-left: 21px;
+}
+.detailrow{
+  padding-top: 18px;
+}
+.h6profile{
+  color: gray;
+  padding-bottom: 27px;
+}
+.phone{
+  color: black;
+  padding-left: 10px;
+}
+.gender{
+  color: black;
+  padding-left: 60px;
+}
+.bdate{
+  color: black;
+  padding-left: 42px;
+}
+.add{
+  color: black;
+  padding-left: 55px;
+}
+.profileeditform{
+  background-color: #e8fdfd;
+  padding-top: 34px;
+  border: 1px solid #dff7f7;
+  border-radius: 12px;
+}
+label{
+  color: black !important;
+  padding-top: 19px;
+}
+.btnadd{
+  background: #107c7c;
+  margin-top: 20px;
+  margin-bottom: 28px;
+  color: white;
+}
+.chnagepwddiv{
+  background-color: #e8fdfd;
+  border: 1px solid #dff7f7;
+  border-radius: 12px;
+  padding-right: 57px;
+  padding-left: 44px;
+  margin-top: 72px;
+}
+.signupbtn{
+  cursor: pointer;
+  background: #107c7c;
+  color: white;
+  margin-top: 24px;
+  margin-bottom: 21px;
+}

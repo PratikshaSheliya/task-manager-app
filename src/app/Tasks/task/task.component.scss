@@ -1,0 +1,105 @@
+.sidebar {
+  background-color: white;
+  height: 44.8rem;
+}
+.main {
+  background-color: #e1fcfc;
+  border-radius: 10px;
+}
+.navbar {
+  background-color: white;
+}
+img {
+  width: 61px;
+  border-radius: 50%;
+}
+.navname {
+  padding-left: 12px;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: revert;
+}
+.btnlogout {
+  background-color: #107c7c;
+  color: white;
+  height: 40px;
+}
+.task-a {
+  font-size: 18px;
+  text-decoration: none;
+  padding-left: 5px;
+  //   color: #107c7c;
+  color: gray;
+}
+.fa-tasks {
+  font-size: 17px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-users {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-user-circle-o {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+hr {
+  color: gray;
+}
+.card {
+  margin-top: 2rem;
+  box-shadow: 2px 2px 2px 2px #7a7a7a;
+  width: 18rem;
+  margin-left: 2rem;
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  width: 60rem;
+}
+mat-card {
+  margin-top: 25px;
+  width: fit-content;
+  margin-left: 29px;
+}
+.plusicon {
+  text-align: end;
+  cursor: pointer;
+  color: gray;
+  padding-top: 19px;
+  padding-right: 32px;
+  font-size: 18px;
+}
+.status {
+  border: 2px solid red;
+  padding: 9px;
+}
+.fa-edit{
+  font-size: 26px;
+  color: gray;
+  margin-left: 18px;
+  // padding-left: 243px;
+  cursor: pointer;
+}
+.material-icons{
+    font-size: 26px;
+    color: gray;
+    // padding-left: 235px;
+    // margin-top: -26px;
+    cursor: pointer;
+}
+.deletemodel{
+  font-size: 19px;
+  color: gray;
+}
+.close:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  border: 1px solid white;
+}
+.modelbtn{
+  background-color: #107c7c;
+  color: white;
+}

@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="LoginPart">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-7 SignUpForm">
+              <h4 class="sign">Forgot password?</h4>
+              <h6 class="credentials">Enter credentials to continue</h6>
+              <p class="sendemail">Enter your email address below and we'll send you password reset Link</p>
+              <form [formGroup]="formPasswordEmail" class="forgotpwdform">
+                <input
+                  class="form-control"
+                  name="email"
+                  type="email"
+                  formControlName="email"
+                  placeholder="Enter Email Address"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                />
+                <div
+                *ngIf="submitted && f['email'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['email'].errors['required']">
+                  Email is required
+                </div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+              </div>
+                  <button type="button" class="btn btn-block w-100 signupbtn" (click)="sendMail()">
+                    Send Email
+                  </button>
+                  </form>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="ImagePart">
+          <img
+            src="https://img.freepik.com/free-vector/tiny-people-carrying-key-open-padlock_74855-16292.jpg?size=626&ext=jpg&ga=GA1.2.2061508238.1656416290"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  

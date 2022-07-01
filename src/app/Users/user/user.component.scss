@@ -1,0 +1,95 @@
+.sidebar {
+  background-color: white;
+  height: 44.8rem;
+}
+.main {
+  background-color: #e1fcfc;
+  border-radius: 10px;
+}
+.navbar {
+  background-color: white;
+}
+img {
+  width: 61px;
+  border-radius: 50%;
+}
+.navname {
+  padding-left: 12px;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: revert;
+}
+.btnlogout {
+  background-color: #107c7c;
+  color: white;
+  height: 40px;
+}
+.task-a {
+  font-size: 18px;
+  text-decoration: none;
+  padding-left: 5px;
+  //   color: #107c7c;
+  color: gray;
+}
+.fa-tasks {
+  font-size: 17px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-users {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+.fa-user-circle-o {
+  font-size: 20px;
+  padding-left: 75px;
+  color: gray;
+}
+hr {
+  color: gray;
+}
+.mat-elevation-z8 {
+  // width: 48.4rem;
+  // margin-left: 11.6rem;
+  box-shadow: none !important;
+}
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type {
+  padding-left: 25px;
+  padding-right: 87px;
+}
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  padding-right: 120px;
+}
+.maintable {
+  background-color: white;
+  margin-top: 3rem;
+  border-radius: 10px;
+  width: 56.5rem;
+  margin-left: 8rem;
+  border: 1px solid #a2dada;
+}
+.serach {
+  height: 3.8rem;
+  margin-left: 16px;
+  margin-top: 12px;
+}
+.thead{
+  color: black;
+    font-size: 16px;
+}
+.tdrow{
+    color: rgb(107, 105, 105);
+    font-size: 16px;
+}
+.fa-eye{
+  font-size: 23px;
+  color: #107c7c;
+}

@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="LoginPart">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-7 SignUpForm">
+            <h4 class="sign">Sign up</h4>
+            <h6 class="credentials">Enter credentials to continue</h6>
+            <hr class="hr" />
+            <form [formGroup]="FormSignUp">
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Name"
+                  formControlName="name"
+                  [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+                /> </mat-form-field
+              ><br />
+              <mat-error *ngIf="submitted && f['name'].errors">
+                <mat-error *ngIf="f['name'].errors['required']">
+                  You must provide Name
+                </mat-error>
+              </mat-error>
+
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Email Address</mat-label>
+                <input
+                  matInput
+                  type="email"
+                  placeholder="Email Address"
+                  formControlName="email"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                /> </mat-form-field
+              ><br />
+              <mat-error
+                *ngIf="submitted && f['email'].errors"
+                class="invalid-feedback"
+              >
+                <mat-error *ngIf="f['email'].errors['required']">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="f['email'].errors['email']"
+                  >Email is invalid</mat-error
+                >
+              </mat-error>
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Password</mat-label>
+                <input
+                [type]=" showPassword ? 'text' : 'password' "
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['password'].errors
+                  }"
+                />  <p class="pwdicon" (click)='showHidePassword()'><mat-icon matSuffix>visibility_off</mat-icon></p></mat-form-field
+              ><br />
+              <mat-error
+                *ngIf="submitted && f['password'].errors"
+                class="invalid-feedback"
+              >
+                <mat-error *ngIf="f['password'].errors['required']">
+                  Password is required
+                </mat-error>
+                <mat-error *ngIf="f['password'].errors['pattern']">
+                  A minimum 6 characters password contains a combination of
+                  uppercase and lowercase letter , special character and number
+                  are required.
+                </mat-error>
+              </mat-error>
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Confirm Password</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  placeholder="Confirm Password"
+                  formControlName="confirmpassword"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['confirmpassword'].errors
+                  }"
+                /> </mat-form-field
+              ><br />
+              <mat-error
+                *ngIf="submitted && f['confirmpassword'].errors"
+                class="invalid-feedback"
+              >
+                <mat-error *ngIf="f['confirmpassword'].errors['required']">
+                  Comfirm password is required
+                </mat-error>
+              </mat-error>
+              <div style="padding-left: 18px; padding-right: 23px">
+                <button
+                  mat-raised-button
+                  class="w-100 btnsignup"
+                  (click)="btnSignUp()"
+                >
+                  Sign Up
+                </button>
+                <hr />
+                <p class="already">
+                  Already have an account? <a routerLink="/login">Login</a>
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="ImagePart">
+        <img
+          src="https://img.freepik.com/free-vector/secure-login-sign-up-concept-illustration-user-use-secure-login-password-protection-website-social-media-account-vector-flat-style_7737-2270.jpg?size=626&ext=jpg&ga=GA1.2.2061508238.1656416290"
+        />
+      </div>
+    </div>
+  </div>
+</div>

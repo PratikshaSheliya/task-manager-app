@@ -1,0 +1,99 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row *ngFor="let val of image">
+    <a routerLink = "/profile" ><img src={{val.image}} /></a>
+    <h1 class="navname">{{ navName }}</h1>
+    <div style="padding-left: 70rem">
+      <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <div class="tagA">
+        <hr />
+        <i class="fa fa-tasks"></i><a routerLink="/task" class="task-a">Task</a
+        ><br />
+        <hr />
+        <i class="fa fa-users"></i><a class="task-a" routerLink="/user">User</a
+        ><br />
+        <hr />
+        <i class="fa fa-user-circle-o"></i
+        ><a class="task-a" routerLink="/profile">Profile</a><br />
+        <hr />
+      </div>
+    </div>
+    <div class="col-md-10 main">
+      <div class="plusicon">
+        <i class="fa fa-plus" (click)="openDialog()"> Add Task</i>
+      </div>
+      <div>
+        <div style="display: flex; flex-direction: column">
+          <div *ngFor="let i of taskData">
+            <mat-card>{{ i.date | date: "yyyy-MM-dd":"+0530" }}</mat-card>
+            <div class="card-container">
+              <div class="card" *ngFor="let j of i.tasks">
+                <div class="card-body">
+                  <h6 class="card-title">Task Name : {{ j.taskname }}</h6>
+                  <hr />
+                  <h6 class="card-title">Task Time : {{ j.tasktime }}</h6>
+                  <hr />
+                  <h6 class="card-title">
+                    Status :
+                    <span
+                      class="status"
+                      [ngStyle]="{
+                        border:
+                          j.status === 'pending'
+                            ? '2px solid #d2ce0f'
+                            : j.status === 'completed'
+                            ? '2px solid green'
+                            : '2px solid red'
+                      }"
+                    >
+                      {{ j.status }}</span
+                    >
+                  </h6>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-8"></div>
+                    <div class="col-md-2">
+                      <i class="fa fa-edit" (click)="btnEdit(j.id)"></i>
+                    </div>
+                    <div class="col-md-2">
+                      <i class="material-icons" (click)="open(content, j.id)"
+                        >delete</i
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Confirmation</h4>
+    <span
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+      aria-hidden="true"
+      >×</span
+    >
+  </div>
+  <div class="modal-body">
+    <p class="deletemodel">Are you sure to delete this?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn modelbtn" (click)="d('Cross click')">
+      Cancel
+    </button>
+    <button type="button" class="btn modelbtn" (click)="c('yes')">Yes</button>
+  </div>
+</ng-template>

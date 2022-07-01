@@ -1,0 +1,225 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row *ngFor="let val of data">
+    <a routerLink = "/profile" ><img src={{val.image}} /></a>
+    <h1 class="navname">{{ navName }}</h1>
+    <div style="padding-left: 70rem">
+      <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <div class="tagA">
+        <hr />
+        <i class="fa fa-tasks"></i><a routerLink="/task" class="task-a">Task</a
+        ><br />
+        <hr />
+        <i class="fa fa-users"></i><a class="task-a" routerLink="/user">User</a
+        ><br />
+        <hr />
+        <i class="fa fa-user-circle-o"></i
+        ><a class="task-a" routerLink="/profile">Profile</a><br />
+        <hr />
+      </div>
+    </div>
+    <div class="col-md-10 main">
+      <div class="maintable">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="account">Account Settings</p>
+          </div>
+          <hr />
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="sidediv">
+              <i class="fa fa-user"></i
+              ><span class="spanside" (click)="SideProfile()"> Profile</span>
+            </div>
+            <div class="sidediv">
+              <i class="fa fa-edit"></i
+              ><span class="spanside" (click)="EditProfile()">
+                Edit Profile</span
+              >
+            </div>
+            <div class="sidediv">
+              <i class="fa fa-lock"></i
+              ><span class="spanside" (click)="SidechangePwd()">
+                Change Password</span
+              >
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="vl"></div>
+          </div>
+          <div class="col-md-7">
+            <div *ngIf="Profile == true">
+              <div class="row">
+                <div class="col-md-3" *ngFor="let val of data">
+                  <img
+                    class="profileImag"
+                    src={{val.image}}
+                  />
+                </div>
+                <div class="col-md-9 profilename" *ngFor="let val of data">
+                  <h5>Name : {{ val.name }}</h5>
+                  <h6>Email : {{ val.email }}</h6>
+                </div>
+              </div>
+              <hr class="hori-hr" />
+              <div class="row" class="detailrow" *ngFor="let val of data">
+                <h6 class="h6profile">
+                  Phone Number :<span class="phone">
+                    {{ val.phonenumber }}</span
+                  >
+                </h6>
+                <h6 class="h6profile">
+                  Gender : <span class="gender"> {{ val.gender }}</span>
+                </h6>
+                <h6 class="h6profile">
+                  Birth Date : <span class="bdate"> {{ val.birth_date | date:"dd-MM-yyyy" }}</span>
+                </h6>
+                <h6 class="h6profile">
+                  Address : <span class="add"> {{ val.address }}</span>
+                </h6>
+              </div>
+            </div>
+            <div *ngIf="editProfile == true">
+              <form
+                [formGroup]="profilrForm"
+                enctype="multipart/form-data"
+                class="profileeditform"
+              >
+                <input type="text" formControlName="id" hidden />
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <label>Phone Number</label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      formControlName="phonenumber"
+                      placeholder="Enter Phone Number"
+                    />
+                  </div>
+                  <div class="col-md-5">
+                    <label>Birth Date</label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      formControlName="birth_date"
+                      placeholder="Enter Date"
+                    />
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5">
+                    <label>Address</label>
+                    <textarea
+                      class="form-control"
+                      cols="30"
+                      rows="2"
+                      formControlName="address"
+                    ></textarea>
+                  </div>
+                  <div class="col-md-5">
+                    <label>Gender</label>
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      formControlName="gender"
+                    >
+                      <option selected hidden>Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <label>Image</label>
+                    <input
+                      id="file"
+                      type="file"
+                      class="form-control"
+                      (change)="onFileSelect($event)"
+                    />
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <button class="btn btnadd w-100" (click)="submit()">
+                      Edit Profile
+                    </button>
+                  </div>
+                  <div class="col-md-1"></div>
+                </div>
+              </form>
+            </div>
+            <div *ngIf="changePwd == true">
+                <form [formGroup]="forgotpwdForm" class="chnagepwddiv">
+                    <input formControlName="id" hidden/>
+                  <label>New Password</label>
+                  <input
+                    class="form-control"
+                    name="password"
+                    type="password"
+                    formControlName="password"
+                    placeholder="Enter New Password"
+                    [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                  />
+                  <div
+                    *ngIf="submitted && f['password'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['password'].errors['required']">
+                      Password is required
+                    </div>
+                    <div *ngIf="f['password'].errors['pattern']">
+                      A minimum 6 characters password contains a combination of
+                      uppercase and lowercase letter , special character and number
+                      are required.
+                    </div>
+                  </div>
+                  <label>Comfirm Password</label>
+                  <input
+                    class="form-control"
+                    name="confirmpassword"
+                    type="password"
+                    formControlName="confirmpassword"
+                    placeholder="Enter Comfirm Password"
+                    [ngClass]="{
+                      'is-invalid': submitted && f['confirmpassword'].errors
+                    }"
+                  />
+                  <div
+                    *ngIf="submitted && f['confirmpassword'].errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f['confirmpassword'].errors['required']">
+                      Comfirm password is required
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-block w-100 signupbtn"
+                    (click)="btnChnagePwd()"
+                  >
+                    Change Password
+                  </button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

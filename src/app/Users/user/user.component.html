@@ -1,0 +1,92 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row *ngFor="let val of image">
+    <a routerLink = "/profile" ><img src={{val.image}} /></a>
+    <h1 class="navname">{{ navName }}</h1>
+    <div style="padding-left: 70rem">
+      <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 sidebar">
+      <div class="tagA">
+        <hr />
+        <i class="fa fa-tasks"></i><a routerLink="/task" class="task-a">Task</a
+        ><br />
+        <hr />
+        <i class="fa fa-users"></i><a class="task-a" routerLink="/user">User</a
+        ><br />
+        <hr />
+        <i class="fa fa-user-circle-o"></i
+        ><a class="task-a" routerLink="/profile">Profile</a><br />
+        <hr />
+      </div>
+    </div>
+    <div class="col-md-10 main">
+      <div class="maintable">
+        <mat-form-field appearance="standard" class="serach">
+          <mat-label>Filter</mat-label>
+          <input
+            matInput
+            (keyup)="applyFilter($event)"
+            placeholder="Ex. Mia"
+            #input
+          />
+        </mat-form-field>
+
+        <div class="mat-elevation-z8">
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            matSort
+            class="mat-elevation-z0"
+          >
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="thead">ID</th>
+              <td mat-cell *matCellDef="let row" class="tdrow">{{ row.id }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="thead">Name</th>
+              <td mat-cell *matCellDef="let row" class="tdrow">{{ row.name }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="thead">Email</th>
+              <td mat-cell *matCellDef="let row" class="tdrow">{{ row.email }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalCount">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="thead">Tasks</th>
+              <td mat-cell *matCellDef="let row" class="tdrow">{{ row.totalCount }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="thead">Action</th>
+              <td mat-cell *matCellDef="let row">
+                <button mat-icon-button color="primary" (click)="btnShow(row.id)">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">
+                No data matching the filter "{{ input.value }}"
+              </td>
+            </tr>
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+          ></mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

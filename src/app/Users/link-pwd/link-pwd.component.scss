@@ -1,0 +1,80 @@
+.LoginPart {
+  background-color: #e1fcfc;
+  height: 48.5rem;
+  width: 53.4rem;
+}
+.col-md-2 {
+  flex: 0 0 auto;
+  width: 16.66666667%;
+  background: #e1fcfc;
+}
+img {
+  height: 49rem;
+  width: 36rem;
+}
+.SignUpForm {
+  background-color: white;
+  margin-top: 12.5rem;
+  border-radius: 9px;
+  border: 1px solid #a2dada;
+}
+.sign {
+  color: #095757;
+  margin-top: 28px;
+  font-weight: 700;
+  font-size: 35px;
+  padding-left: 18px;
+}
+.hr {
+  margin-left: 21px;
+  width: 27.5rem;
+}
+.credentials {
+  color: gray;
+  padding-left: 18px;
+}
+.matInput {
+  width: 29rem;
+  padding-left: 18px;
+}
+.btnsignup {
+  background-color: #095757;
+  color: white;
+  height: 50px;
+  margin-bottom: 12px;
+}
+.already {
+  color: gray;
+  font-weight: 500;
+  text-align: end;
+}
+a {
+  font-weight: bold;
+  color: #095757;
+  cursor: pointer;
+  text-decoration: none;
+}
+.sendemail {
+  color: gray;
+  padding-left: 18px;
+  padding-top: 23px;
+}
+.forgotpwdform {
+  padding-left: 17px;
+  padding-right: 36px;
+}
+.form-control {
+  height: 3.5rem;
+}
+.signupbtn {
+  background-color: #095757;
+  color: white;
+  cursor: pointer;
+  margin-top: 22px;
+  margin-bottom: 24px;
+  height: 3rem;
+}
+.pwdreq {
+  margin-top: -22px;
+  margin-bottom: 12px;
+}

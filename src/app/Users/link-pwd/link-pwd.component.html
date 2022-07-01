@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="LoginPart">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-7 SignUpForm">
+              <h4 class="sign">Reset Password</h4>
+              <h6 class="credentials">Please choose new password.</h6><br>
+              <form [formGroup]="forgotpwdForm" class="forgotpwdform">
+                <input formControlName="id" hidden/>
+              <input
+                class="form-control"
+                name="password"
+                type="password"
+                formControlName="password"
+                placeholder="Enter New Password"
+                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+              /><br>
+              <div
+                *ngIf="submitted && f['password'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['password'].errors['required']" class="pwdreq">
+                  Password is required
+                </div>
+                <div *ngIf="f['password'].errors['pattern']" class="pwdreq">
+                  A minimum 6 characters password contains a combination of
+                  uppercase and lowercase letter , special character and number
+                  are required.
+                </div>
+              </div>
+              <input
+                class="form-control"
+                name="confirmpassword"
+                type="password"
+                formControlName="confirmpassword"
+                placeholder="Enter Comfirm Password"
+                [ngClass]="{
+                  'is-invalid': submitted && f['confirmpassword'].errors
+                }"
+              />
+              <div
+                *ngIf="submitted && f['confirmpassword'].errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f['confirmpassword'].errors['required']">
+                  Comfirm password is required
+                </div>
+              </div>
+              <button
+                type="button"
+                class="btn btn-block w-100 signupbtn"
+                (click)="btnsubmit()"
+              >
+                Change Password
+              </button>
+            </form>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="ImagePart">
+          <img
+            src="https://img.freepik.com/free-vector/tiny-people-carrying-key-open-padlock_74855-16292.jpg?size=626&ext=jpg&ga=GA1.2.2061508238.1656416290"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  

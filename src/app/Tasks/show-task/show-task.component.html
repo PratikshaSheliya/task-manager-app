@@ -1,0 +1,56 @@
+<mat-toolbar class="navbar">
+    <mat-toolbar-row>
+      <img src="https://www.w3schools.com/howto/img_avatar.png" />
+      <h1 class="navname">{{ navName }}</h1>
+      <div style="padding-left: 75rem">
+        <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 sidebar">
+        <div class="tagA">
+          <hr />
+          <i class="fa fa-tasks"></i><a routerLink="/task" class="task-a">Task</a
+          ><br />
+          <hr />
+          <i class="fa fa-users"></i><a class="task-a" routerLink="/user">User</a
+          ><br />
+          <hr />
+          <i class="fa fa-user-circle-o"></i
+          ><a class="task-a" routerLink="/profile">Profile</a><br />
+          <hr />
+        </div>
+      </div>
+      <div class="col-md-10 main">
+        <div class="col-md-4" *ngFor="let value of taskData">
+            <mat-card style="font-weight:500;">
+             Name : {{ value.name  }}<br>
+             Email : {{value.email}}
+            </mat-card>
+            <div class="card-container" *ngIf="value.tasks[0].taskname">
+              <div
+                class="card"
+                *ngFor="let val of value.tasks"
+                [ngStyle]="{'border-top':val.status === 'pending' ? '5px solid #d2ce0f' :  (val.status === 'completed' ? '5px solid green' : '5px solid red')}"
+              >
+                <div class="card-body">
+                  <h6 class="card-title">Task Name : {{ val.taskname }}</h6>
+                  <hr />
+                  <h6 class="card-title">Task Time : {{ val.tasktime }}</h6>
+                  <hr />
+                  <h6 class="card-title">Task Status : {{ val.status }}</h6>
+                  <hr />
+                  <h6 class="card-title">Task Date : {{ val.taskdate | date: "yyyy-MM-dd" : '+0530' }}</h6>
+                  <hr />
+                </div>
+              </div>
+        </div>
+        <div class="card notcard" *ngIf="!value.tasks[0].taskname"><p class="pnotcard">*{{value.name}} do not create any Task</p></div>
+          </div>
+      </div>
+    </div>
+  </div>
+  

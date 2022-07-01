@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-7">
+      <div class="LoginPart">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-7 SignUpForm">
+            <h4 class="sign">Hi, Welcome Back</h4>
+            <h6 class="credentials">Login in to your account</h6>
+            <hr class="hr" />
+            <form [formGroup]="FormLogin">
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Email Address</mat-label>
+                <input
+                type="email"
+                  matInput
+                  placeholder="Email Address"
+                  formControlName="email"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+                /> </mat-form-field
+              ><br />
+              <mat-error
+                *ngIf="submitted && f['email'].errors"
+                class="invalid-feedback"
+              >
+                <mat-error *ngIf="f['email'].errors['required']">
+                  Email is required
+                </mat-error>
+                <mat-error *ngIf="f['email'].errors['email']"
+                  >Email is invalid</mat-error
+                >
+              </mat-error>
+              <mat-form-field appearance="outline" class="matInput">
+                <mat-label>Password</mat-label>
+                <input
+                [type]=" showPassword ? 'text' : 'password' "
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['password'].errors
+                  }"
+                />
+                <p class="pwdicon" (click)='showHidePassword()'><mat-icon matSuffix>visibility_off</mat-icon></p>
+                 </mat-form-field><br />
+              <mat-error
+                *ngIf="submitted && f['password'].errors"
+                class="invalid-feedback"
+              >
+                <mat-error *ngIf="f['password'].errors['required']">
+                  Password is required
+                </mat-error></mat-error
+              >
+              <p class="fpwd"><a routerLink="/password">Forgot Password?</a></p>
+              <div style="padding-left: 18px; padding-right: 23px">
+                <button
+                  mat-raised-button
+                  class="w-100 btnsignup"
+                  (click)="btnLogin()"
+                >
+                  Login
+                </button>
+                <hr />
+                <p class="already">
+                  Don't have an account? <a routerLink="/signup">Sign Up</a>
+                </p>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="ImagePart">
+        <img
+          src="https://img.freepik.com/free-vector/man-sitting-desk-unlocking-computer-computer-settings-login-flat-illustration_74855-20645.jpg?size=626&ext=jpg&ga=GA1.2.2061508238.1656416290"
+        />
+      </div>
+    </div>
+  </div>
+</div>
