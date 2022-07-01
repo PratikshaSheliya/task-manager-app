@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class SignupComponent implements OnInit {
   FormSignUp!: FormGroup;
   showPassword: boolean = false;
+  showcomPassword: boolean = false;
   submitted = false;
   constructor(private fb: FormBuilder, private toastr: ToastrService,private api:ApiService,private router :Router) {}
 
@@ -35,6 +36,9 @@ export class SignupComponent implements OnInit {
   }
   showHidePassword() {
     this.showPassword = !this.showPassword;
+  }
+  showHidecomPassword() {
+    this.showcomPassword = !this.showcomPassword;
   }
   btnSignUp() {
     this.submitted = true;

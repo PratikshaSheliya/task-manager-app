@@ -55,8 +55,9 @@
                   [ngClass]="{
                     'is-invalid': submitted && f['password'].errors
                   }"
-                />  <p class="pwdicon" (click)='showHidePassword()'><mat-icon matSuffix>visibility_off</mat-icon></p></mat-form-field
-              ><br />
+                />
+                <p class="pwdicon" (click)='showHidePassword()'><mat-icon matSuffix>visibility_off</mat-icon></p>
+                 </mat-form-field><br />
               <mat-error
                 *ngIf="submitted && f['password'].errors"
                 class="invalid-feedback"
@@ -74,13 +75,16 @@
                 <mat-label>Confirm Password</mat-label>
                 <input
                   matInput
-                  type="password"
+                  [type]="showcomPassword ? 'text' : 'password'"
                   placeholder="Confirm Password"
                   formControlName="confirmpassword"
                   [ngClass]="{
                     'is-invalid': submitted && f['confirmpassword'].errors
                   }"
-                /> </mat-form-field
+                />
+                <p class="pwdicon" (click)="showHidecomPassword()">
+                  <mat-icon matSuffix>visibility_off</mat-icon>
+                </p> </mat-form-field
               ><br />
               <mat-error
                 *ngIf="submitted && f['confirmpassword'].errors"
