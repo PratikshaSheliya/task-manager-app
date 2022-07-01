@@ -1,12 +1,12 @@
 <mat-toolbar class="navbar">
-    <mat-toolbar-row>
-      <img src="https://www.w3schools.com/howto/img_avatar.png" />
-      <h1 class="navname">{{ navName }}</h1>
-      <div style="padding-left: 75rem">
-        <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-toolbar-row *ngFor="let val of image">
+    <a routerLink = "/profile" ><img src={{val.image}} /></a>
+    <h1 class="navname">{{ navName }}</h1>
+    <div style="padding-left: 70rem">
+      <button class="btn btnlogout" (click)="btnlogout()">LogOut</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
   
   <div class="container-fluid">
     <div class="row">

@@ -11,10 +11,13 @@ export class ShowTaskComponent implements OnInit {
   navName: any;
   taskData: any = '';
   id:any;
+  image: any;
   constructor(private api: ApiService, private router: Router,private acroute:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.displayTask()
+    this.getProfileUserData()
+    this.getName()
   }
   displayTask() {
     this.id = this.acroute.snapshot.params['id'];
@@ -52,6 +55,16 @@ export class ShowTaskComponent implements OnInit {
     this.api.loggedin().subscribe({
       next: (res) => {
         this.navName = res.data.name;
+      },
+      error: (error) => {
+        console.log('error', error);
+      },
+    });
+  }
+  getProfileUserData() {
+    this.api.getProfileUserData().subscribe({
+      next: (res) => {
+        this.image = res;
       },
       error: (error) => {
         console.log('error', error);
